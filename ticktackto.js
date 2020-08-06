@@ -3,6 +3,7 @@ var table1 = document.createElement('table');
 var julldle = [];
 var candle  =[];
 var turn = 'X';
+var result = document.createElement('div');
 
 var callback = function (Event ){
     
@@ -14,14 +15,14 @@ var callback = function (Event ){
 	if(candle[mutjull][mutcan].textContent !== '') {
 		console.log('NOT Empty Can');
     } 
-    else{ // ∫Ûƒ≠ ¿œ ∞ÊøÏ
+    else{ // ÎπàÏπ∏ Ïùº Í≤ΩÏö∞
         
         console.log('Empty Can');
         candle[mutjull][mutcan].textContent = turn;
         
         var full = false;
         
-        //∞°∑Œ¡Ÿ ∞ÀªÁ
+        //Í∞ÄÎ°úÏ§Ñ Í≤ÄÏÇ¨
         if(
             candle[mutjull][0].textContent === turn &&
             candle[mutjull][1].textContent === turn &&
@@ -30,7 +31,7 @@ var callback = function (Event ){
             full = true;
         }
         
-        //ºº∑Œ¡Ÿ ∞ÀªÁ
+        //ÏÑ∏Î°úÏ§Ñ Í≤ÄÏÇ¨
         if (
             candle[0][mutcan].textContent === turn &&
             candle[1][mutcan].textContent === turn &&
@@ -39,8 +40,9 @@ var callback = function (Event ){
             full = true;
         }
         
-        //¥Î∞¢º± ∞ÀªÁ
+        //ÎåÄÍ∞ÅÏÑ† Í≤ÄÏÇ¨
         if(mutjull = mutcan === 0 || Math.abs(mutjull - mutcan) === 2) {
+		console.log('ÎåÄÍ∞ÅÏÑ† ÌÜµÍ≥º');
             if(
                 candle[0][0].textContent === turn &&
                 candle[1][1].textContent === turn &&
@@ -52,10 +54,18 @@ var callback = function (Event ){
         
     if(full) {
         console.log(turn + ' User Win');
+	body.append(result);
+	    
+	turn = 'X';
+	candle.forEach(function(jull){
+		jull.forEach(function(can) {
+			td.textContent='';
+		});
+	});
     }
         
-    else { // ¥Ÿ æ»√°¿∏∏È
-        if(turn == 'X'){
+    else { // Îã§ ÏïàÏ∞ºÏúºÎ©¥
+        if(turn ==='X'){
 			turn = '0';
 		}
         else{
