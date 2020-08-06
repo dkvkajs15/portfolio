@@ -97,7 +97,3 @@ for(i=1; i<=3; i++){
 }
 b1.appendChild(table1);
 console.log(julldle, candle);
-
-
-
-
