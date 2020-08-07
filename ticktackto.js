@@ -59,21 +59,18 @@ var callback = function (Event ){
 	turn = 'X';
 	candle.forEach(function(jull){
 		jull.forEach(function(can) {
-			can.textContent='';
+			can.textContent=' ';
 		});
 	});
-    }
-        
-    else { // 다 안찼으면
+    }else { // 다 안찼으면
         if(turn ==='X'){
-			turn = '0';
-		}
-        else{
-			turn = 'X';
-		}
-    }
-		
+		turn = '0';
 	}
+        else{
+		turn = 'X';
+	}
+    }
+  }
 };
 
     
