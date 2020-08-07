@@ -59,7 +59,7 @@ var callback = function (Event ){
 	turn = 'X';
 	candle.forEach(function(jull){
 		jull.forEach(function(can) {
-			td.textContent='';
+			can.textContent='';
 		});
 	});
     }
