@@ -7,6 +7,10 @@ var result = document.createElement('div');
 
 var callback = function (Event ){
 
+  console.log(Event.target);
+  console.log(Event.target.parentNode);
+  console.log(Event.target.parentNode.parentNode);
+
 	var mutjull = julldle.indexOf(Event.target.parentNode);
 	console.log('mutjull', mutjull);
 	var mutcan = candle[mutjull].indexOf(Event.target);
@@ -14,9 +18,7 @@ var callback = function (Event ){
 
 	if(candle[mutjull][mutcan].textContent !== '') {
 		console.log('NOT Empty Can');
-    }
-    else{ // 빈칸 일 경우
-
+  } else{ // 빈칸 일 경우
         console.log('Empty Can');
         candle[mutjull][mutcan].textContent = turn;
 
@@ -41,8 +43,8 @@ var callback = function (Event ){
         }
 
         //대각선 검사
-        console.log("역 대각선 : "+Math.abs(mutjull+mutcan));
-        if(mutjull = mutcan === 0 || Math.abs(mutjull - mutcan) === 2) {
+        console.log("역 대각선 : "+Math.abs(mutjull-mutcan));
+        if(mutjull - mutcan === 0 || Math.abs(mutjull-mutcan) === 2) {
 		        console.log('대각선 통과');
             if((
                 candle[0][0].textContent === turn &&
@@ -56,19 +58,21 @@ var callback = function (Event ){
         }
 
     if(full) {
-        console.log(turn + ' User Win');
-        body.append(result);
+
+        console.log(turn + '님이 승리');
+        b1.append(result);
 
         turn = 'X';
-        candle.forEach(function(jull){
+        candle.forEach(function(jull) {
             jull.forEach(function(can) {
                 can.textContent=' ';
             });
         });
+
     }else { // 다 안찼으면
-        if(turn ==='X'){
-			turn = '0';
-		}
+      if(turn ==='X'){
+		       turn = 'O';
+	    }
       else{
         turn = 'X';
       }
@@ -90,8 +94,8 @@ for(i=1; i<=3; i++){
 
 		can.addEventListener('click', callback);
 		candle[i - 1].push(can);
+		jull.append(can);
 
-		jull.appendChild(can);
 	}
 	table1.appendChild(jull);
 }
