@@ -5,15 +5,15 @@ var candle  =[];
 var turn = 'X';
 var result = document.createElement('div');
 
-var callback = function (Event ){
+var callback = function (EVENT){
 
-  console.log(Event.target);
-  console.log(Event.target.parentNode);
-  console.log(Event.target.parentNode.parentNode);
+  console.log(EVENT.target);
+  console.log(EVENT.target.parentNode);
+  console.log(EVENT.target.parentNode.parentNode);
 
-	var mutjull = julldle.indexOf(Event.target.parentNode);
+	var mutjull = julldle.indexOf(EVENT.target.parentNode);
 	console.log('mutjull', mutjull);
-	var mutcan = candle[mutjull].indexOf(Event.target);
+	var mutcan = candle[mutjull].indexOf(EVENT.target);
 	console.log('mutcan', mutcan);
 
 	if(candle[mutjull][mutcan].textContent !== '') {
@@ -49,10 +49,7 @@ var callback = function (Event ){
             if((
                 candle[0][0].textContent === turn &&
                 candle[1][1].textContent === turn &&
-                candle[2][2].textContent === turn
-            ) || (candle[0][2].textContent === turn &&
-                  candle[2][0].textContent === turn &&
-                  candle[1][1].textcontent === turn)) {
+                candle[2][2].textContent === turn) || (candle[0][2].textContent === turn && candle[2][0].textcontent === turn && candle[1][1].textcontent === turn)) {
                 full = true;
             }
         }
@@ -65,7 +62,7 @@ var callback = function (Event ){
         turn = 'X';
         candle.forEach(function(jull) {
             jull.forEach(function(can) {
-                can.textContent=' ';
+                can.textContent='';
             });
         });
 
@@ -91,11 +88,9 @@ for(i=1; i<=3; i++){
 
 	for(var j=1; j<=3; j+=1){
 		var can = document.createElement('td');
-
 		can.addEventListener('click', callback);
 		candle[i - 1].push(can);
 		jull.append(can);
-
 	}
 	table1.appendChild(jull);
 }
