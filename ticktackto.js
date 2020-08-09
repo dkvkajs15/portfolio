@@ -7,13 +7,6 @@ var result = document.createElement('div');
 
 var callback = function (EVENT){
 
-<<<<<<< HEAD
-=======
-  console.log(EVENT.target);
-  console.log(EVENT.target.parentNode);
-  console.log(EVENT.target.parentNode.parentNode);
-
->>>>>>> 0822f083beb180f123eed78a9a24c349cc10fa9f
 	var mutjull = julldle.indexOf(EVENT.target.parentNode);
 	console.log('mutjull', mutjull);
 	var mutcan = candle[mutjull].indexOf(EVENT.target);
@@ -24,10 +17,6 @@ var callback = function (EVENT){
   } else{ // 빈칸 일 경우
         console.log('Empty Can');
         candle[mutjull][mutcan].textContent = turn;
-<<<<<<< HEAD
-=======
-
->>>>>>> 0822f083beb180f123eed78a9a24c349cc10fa9f
         var full = false;
 
         //가로줄 검사
@@ -52,16 +41,9 @@ var callback = function (EVENT){
         console.log("역 대각선 : "+Math.abs(mutjull-mutcan));
         if(mutjull - mutcan === 0 || Math.abs(mutjull-mutcan) === 2) {
 		        console.log('대각선 통과');
-<<<<<<< HEAD
                 if((candle[0][0].textContent === turn &&
                     candle[1][1].textContent === turn &&
                     candle[2][2].textContent === turn ) || (candle[0][2].textContent===turn && candle[2][0].textContent ===turn && candle[1][1].textContent ===turn)){
-=======
-            if((
-                candle[0][0].textContent === turn &&
-                candle[1][1].textContent === turn &&
-                candle[2][2].textContent === turn) || (candle[0][2].textContent === turn && candle[2][0].textcontent === turn && candle[1][1].textcontent === turn)) {
->>>>>>> 0822f083beb180f123eed78a9a24c349cc10fa9f
                 full = true;
             }
         }
@@ -89,12 +71,6 @@ var callback = function (EVENT){
 	}
 };
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 0822f083beb180f123eed78a9a24c349cc10fa9f
 for(i=1; i<=3; i++){
 	var jull = document.createElement('tr');
 
